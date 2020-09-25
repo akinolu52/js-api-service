@@ -28,12 +28,14 @@ purge, link, unlink
 ```javascript
 import { ApiService } from 'js-api-service';
 
-const userApiService = ApiService('https://jsonplaceholder.typicode.com');
+const userApiService = new ApiService('https://jsonplaceholder.typicode.com');
 // or
-// const userApiService = ApiService('https://jsonplaceholder.typicode.com', 'Bearer **token**');
-ApiService.request(
-    'post', 
-    '/auth',
+// const userApiService = new ApiService('https://jsonplaceholder.typicode.com', 'Bearer **token**');
+// or
+// const userApiService = new ApiService('https://jsonplaceholder.typicode.com', 'Bearer **token**', 'application/json');
+userApiService.request(
+    'get', 
+    '/users',
     response => {
         console.log(response);
         return response;
@@ -42,8 +44,8 @@ ApiService.request(
         console.log(error);
         return error;
     },
-    { username: 'user', password: 'user' },
-    console.log('Login into your account...'),
+    null,
+    console.log('Loading all users...'),
 );
 
 ```
