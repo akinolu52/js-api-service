@@ -43,7 +43,7 @@ ApiService.request(
         return error;
     },
     { username: 'user', password: 'user' },
-    console.log('Login you into your account...'),
+    console.log('Login into your account...'),
 );
 
 ```
