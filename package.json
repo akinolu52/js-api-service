@@ -1,6 +1,6 @@
 {
   "name": "js-api-service",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "A service to help you with your API request",
   "main": "index.ts",
   "scripts": {
