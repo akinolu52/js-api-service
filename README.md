@@ -15,18 +15,6 @@ npm install js-api-service
 ```javascript
 import { ApiService } from 'js-api-service';
 
-| 'get' | 'GET'
-  | 'delete' | 'DELETE'
-  | 'head' | 'HEAD'
-  | 'options' | 'OPTIONS'
-  | 'post' | 'POST'
-  | 'put' | 'PUT'
-  | 'patch' | 'PATCH'
-  | 'purge' | 'PURGE'
-  | 'link' | 'LINK'
-  | 'unlink' | 'UNLINK'
-
-
 ***Example:***
 
 const userApiService = ApiService('https://jsonplaceholder.typicode.com');
