@@ -47,7 +47,7 @@ export class ApiService {
                     url: path,
                     responseType: 'json',
                 })
-                .then((response: { data: AxiosResponse }) => callback(response.data), errorCallback);
+                .then((response: { data: AxiosResponse }) => callback(response), errorCallback);
         } else {
             return this.service
                 .request({
