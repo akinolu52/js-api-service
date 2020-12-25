@@ -1,9 +1,7 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, AxiosInstance, Method } from 'axios';
+import axios from 'axios';
 
 export class ApiService {
-    private service: AxiosInstance;
-
-    constructor(baseURL: string, token?: string, contentType?: string) {
+    constructor(baseURL, token, contentType) {
         const instance = axios.create({
             baseURL,
             headers: {
@@ -15,7 +13,7 @@ export class ApiService {
         });
 
         instance.interceptors.response.use(this.handleSuccess, this.handleError);
-        instance.interceptors.request.use((config: AxiosRequestConfig) => {
+        instance.interceptors.request.use((config) => {
             if (!token) return config;
 
             config.headers['Authorization'] = 'Bearer ' + token;
@@ -25,17 +23,17 @@ export class ApiService {
         this.service = instance;
     }
 
-    private handleSuccess = (response: AxiosResponse) => response;
+    handleSuccess = response => response;
 
-    private handleError = (error: AxiosError) => Promise.reject(error?.response);
+    handleError = error => Promise.reject(error?.response);
 
     request(
-        method: Method,
-        path: string,
-        callback: any,
-        errorCallback: any,
-        payload?: AxiosRequestConfig,
-        exectuteWhileLoading?: any,
+        method,
+        path,
+        callback,
+        errorCallback,
+        payload,
+        exectuteWhileLoading,
     ) {
         if (exectuteWhileLoading) exectuteWhileLoading();
         const requestMethod = method.toLowerCase();
@@ -47,7 +45,7 @@ export class ApiService {
                     url: path,
                     responseType: 'json',
                 })
-                .then((response: { data: AxiosResponse }) => callback(response), errorCallback);
+                .then(response => callback(response), errorCallback);
         } else {
             return this.service
                 .request({
@@ -56,7 +54,7 @@ export class ApiService {
                     responseType: 'json',
                     data: payload,
                 })
-                .then((response: { data: AxiosResponse }) => callback(response.data), errorCallback);
+                .then(response => callback(response?.data), errorCallback);
         }
     }
 }

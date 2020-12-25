@@ -1,8 +1,8 @@
 {
   "name": "js-api-service",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A service to help you with your API request using axios",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,11 @@
     "axios",
     "request",
     "api",
+    "js",
+    "react",
+    "reactjs",
+    "vue",
+    "vuejs",
     "service",
     "api-service",
     "js-api",
